@@ -1,0 +1,8 @@
+Assembly-CSharp.dll
+unimplemented.txt
+obj/
+bin/
+.idea/
+.vs/
+.vscode/
+*.cmd
