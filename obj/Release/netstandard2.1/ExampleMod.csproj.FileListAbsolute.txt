@@ -1,0 +1,13 @@
+C:\Users\Thinc\Source\Repos\TooManySigils\bin\Release\netstandard2.1\TooManySigils.deps.json
+C:\Users\Thinc\Source\Repos\TooManySigils\bin\Release\netstandard2.1\TooManySigils.dll
+C:\Users\Thinc\Source\Repos\TooManySigils\bin\Release\netstandard2.1\TooManySigils.pdb
+C:\Users\Thinc\Source\Repos\TooManySigils\bin\Release\netstandard2.1\ATribeLibary.dll
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\ExampleMod.csproj.AssemblyReference.cache
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\MyPluginInfo.cs
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\ExampleMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\ExampleMod.AssemblyInfoInputs.cache
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\ExampleMod.AssemblyInfo.cs
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\ExampleMod.csproj.CoreCompileInputs.cache
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\ExampleMod.csproj.CopyComplete
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.dll
+C:\Users\Thinc\Source\Repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.pdb
