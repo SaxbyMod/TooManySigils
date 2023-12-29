@@ -1,0 +1,12 @@
+{
+    "name": "Too_Many_Sigils",
+    "version_number": "2.4.0",
+    "website_url": "https://discord.gg/XDvfu8cZny",
+    "description": "A newer sigil library plus ports of old. 21 Sigils and 2 Stats",
+    "dependencies": [
+        "BepInEx-BepInExPack_Inscryption-5.4.1902",
+        "API_dev-API-2.15.1",
+        "The_Unwanted_but_Useful_Libraries-Tribal_Libary-1.14.1",
+        "The_Unwanted_but_Useful_Libraries-Unused_Sigils_Disabler_by_Void_Slime-1.0.0"
+    ]
+}
