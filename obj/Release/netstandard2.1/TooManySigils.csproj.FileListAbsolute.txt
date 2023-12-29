@@ -1,0 +1,15 @@
+C:\Users\Thinc\source\repos\TooManySigils\bin\Release\netstandard2.1\TooManySigils.deps.json
+C:\Users\Thinc\source\repos\TooManySigils\bin\Release\netstandard2.1\TooManySigils.dll
+C:\Users\Thinc\source\repos\TooManySigils\bin\Release\netstandard2.1\TooManySigils.pdb
+C:\Users\Thinc\source\repos\TooManySigils\bin\Release\netstandard2.1\ATribalLibary.dll
+C:\Users\Thinc\source\repos\TooManySigils\bin\Release\netstandard2.1\InscryptionAPI.dll
+C:\Users\Thinc\source\repos\TooManySigils\bin\Release\netstandard2.1\InscryptionCommunityPatch.dll
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.csproj.AssemblyReference.cache
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\MyPluginInfo.cs
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.AssemblyInfoInputs.cache
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.AssemblyInfo.cs
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.csproj.CoreCompileInputs.cache
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.csproj.CopyComplete
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.dll
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.pdb
