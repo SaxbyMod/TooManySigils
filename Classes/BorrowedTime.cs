@@ -27,12 +27,12 @@ namespace TooManySigils.Classes
         }
 
 
-        public override bool RespondsToPreDeathAnimation(bool wasSacrifice)
+        public override bool RespondsToDie(bool wasSacrifice, PlayableCard killer)
         {
-            return !wasSacrifice;
+            return base.RespondsToDie(!wasSacrifice, killer);
         }
 
-        public override IEnumerator OnPreDeathAnimation(bool wasSacrifice)
+        public override IEnumerator OnDie(bool wasSacrifice, PlayableCard killer)
         {
             if (Turn < base.Card.Info.evolveParams.turnsToEvolve)
             {

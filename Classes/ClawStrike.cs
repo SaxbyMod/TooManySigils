@@ -1,15 +1,21 @@
 ﻿using DiskCardGame;
+using HarmonyLib;
 using InscryptionAPI.Card;
 using InscryptionAPI.Helpers.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace TooManySigils.Classes
 {
     internal class ClawStrike : ExtendedAbilityBehaviour
     {
+        public CardModificationInfo mod = new CardModificationInfo() { singletonId = "ClawStrikeLeft" };
+
+        public static Ability ability;
+
         public override Ability Ability
         {
             get
@@ -18,7 +24,15 @@ namespace TooManySigils.Classes
             }
         }
 
-        public static Ability ability;
+        public void Start()
+        {
+            base.Card.AddTemporaryMod(mod);
+        }
+
+        public override bool RemoveDefaultAttackSlot()
+        {
+            return true;
+        }
 
         public override bool RespondsToGetOpposingSlots()
         {
@@ -27,68 +41,39 @@ namespace TooManySigils.Classes
 
         public override List<CardSlot> GetOpposingSlots(List<CardSlot> originalSlots, List<CardSlot> otherAddedSlots)
         {
-            List<CardSlot> opposingSlots = [];
-            opposingSlots.Remove(base.Card.OpposingSlot());
-
-            CardSlot toLeftSlot = BoardManager.Instance.GetAdjacent(base.Card.Slot, true);
-            if (toLeftSlot != null)
-            {
-                opposingSlots.Add(toLeftSlot.opposingSlot);
-            }
-            else
-            {
-                Console.Write("Cant Do");
-            }
-
-            CardSlot toRightSlot = BoardManager.Instance.GetAdjacent(base.Card.Slot, false);
-            if (toRightSlot != null)
-            {
-                opposingSlots.Add(toRightSlot.opposingSlot);
-            }
-            else
-            {
-                Console.Write("Cant Do");
-            }
-            opposingSlots.Remove(base.Card.OpposingSlot());
-            return opposingSlots;
+            return Singleton<BoardManager>.Instance.GetAdjacentSlots(base.Card.Slot.opposingSlot);
         }
 
-        public override bool RespondsToUpkeep(bool playerUpkeep)
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(CombatPhaseManager), nameof(CombatPhaseManager.SlotAttackSlot))]
+        public static void SlotAttackSlotPatch(CardSlot attackingSlot)
         {
-            return playerUpkeep;
+            if (attackingSlot.Card.HasAbility(ClawStrike.ability))
+            {
+                CardModificationInfo LeftMod = attackingSlot.Card.TemporaryMods.FirstOrDefault(x => x.singletonId == "ClawStrikeLeft");
+                CardModificationInfo RightMod = attackingSlot.Card.TemporaryMods.FirstOrDefault(x => x.singletonId == "ClawStrikeRight");
+                if (LeftMod != null)
+                {
+                    LeftMod.singletonId = "ClawStrikeRight";
+                }
+                else if (RightMod != null)
+                {
+                    RightMod.singletonId = "ClawStrikeLeft";
+                }
+            }
         }
 
-        public override IEnumerator OnUpkeep(bool playerUpkeep)
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(PlayableCard), nameof(PlayableCard.Attack), MethodType.Getter)]
+        public static bool AttackPatch(ref PlayableCard __instance, ref int __result)
         {
-            CardSlot toLeftSlot = BoardManager.Instance.GetAdjacent(base.Card.Slot, true);
-            CardSlot toRightSlot = BoardManager.Instance.GetAdjacent(base.Card.Slot, false);
-            int AttackBonus = 1;
-            CardSlot chosenSlot = null;
+            CardModificationInfo LeftMod = __instance.TemporaryMods.FirstOrDefault(x => x.singletonId == "ClawStrikeLeft");
+            bool isEvenTurn = Singleton<TurnManager>.Instance.TurnNumber % 2 == 0;
+            if ((LeftMod != null) == isEvenTurn && __instance.HasAbility(ClawStrike.ability)) { return true; }
 
-            var rand = new System.Random();
-            int randomValue = rand.Next(0, 1);
-
-            if (randomValue == 0 && toLeftSlot.opposingSlot != null)
-            {
-                Console.Write($"Attacking Left");
-                chosenSlot = toLeftSlot.opposingSlot;
-            }
-            else if (randomValue == 1 && toRightSlot.opposingSlot != null)
-            {
-                Console.Write($"Attacking Right");
-                chosenSlot = toRightSlot.opposingSlot;
-            }
-            else
-            {
-                Console.Write($"Err No Slots");
-            }
-            if (chosenSlot != null && chosenSlot.Card != null)
-            {
-                yield return PreSuccessfulTriggerSequence();
-                yield return new WaitForSeconds(0.2f);
-                yield return chosenSlot.Card.TakeDamage(AttackBonus, null);
-            }
+            __result = Mathf.Max(0, __instance.Info.Attack + __instance.GetAttackModifications() + __instance.GetPassiveAttackBuffs()) + 1;
+            return false;
         }
     }
 }
-

@@ -13,3 +13,4 @@ C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigi
 C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.csproj.CopyComplete
 C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.dll
 C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.pdb
+C:\Users\Thinc\source\repos\TooManySigils\obj\Release\netstandard2.1\TooManySigils.sourcelink.json

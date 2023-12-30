@@ -9,8 +9,6 @@ namespace TooManySigils.Classes
 {
     public class FishOutOfWater : AbilityBehaviour
     {
-        public CardModificationInfo mod = new();
-
         public override Ability Ability
         {
             get
@@ -21,6 +19,19 @@ namespace TooManySigils.Classes
 
         public static Ability ability;
 
+        public CardModificationInfo SubmergeMod = new();
+        public CardModificationInfo SwapToSubmergeMod = new();
+        public CardModificationInfo SwapToAirborneMod = new();
+
+        public void Start()
+        {
+            SwapToSubmergeMod.abilities.Add(Ability.Submerge);
+            SwapToSubmergeMod.abilities.Remove(Ability.Flying);
+            SwapToAirborneMod.abilities.Add(Ability.Flying);
+            SwapToAirborneMod.abilities.Remove(Ability.Submerge);
+            SubmergeMod.abilities.Add(Ability.Submerge);
+        }
+
         public override bool RespondsToUpkeep(bool playerUpkeep)
         {
             return playerUpkeep;
@@ -30,17 +41,15 @@ namespace TooManySigils.Classes
         {
             if (base.Card.HasAbility(Ability.Flying))
             {
-                this.mod.abilities.Add(Ability.Submerge);
-                this.mod.abilities.Remove(Ability.Flying);
+                base.Card.AddTemporaryMod(SwapToSubmergeMod);
             }
             else if (base.Card.HasAbility(Ability.Submerge))
             {
-                this.mod.abilities.Add(Ability.Flying);
-                this.mod.abilities.Remove(Ability.Submerge);
+                base.Card.AddTemporaryMod(SwapToAirborneMod);
             }
             else
             {
-                this.mod.abilities.Add(Ability.Submerge);
+                base.Card.AddTemporaryMod(SubmergeMod);
             }
             yield break;
         }
