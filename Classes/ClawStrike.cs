@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace TooManySigils.Classes
 {
+    [HarmonyPatch]
     internal class ClawStrike : ExtendedAbilityBehaviour
     {
         public CardModificationInfo mod = new CardModificationInfo() { singletonId = "ClawStrikeLeft" };
