@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Sigil libary of new")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.5.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.5.0+0b8be68ca5b96796841161adbdb2b3d7e9d93f84")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.5.0+5591a9ecd0e89794d5437a8c1803c3a9bcd0964b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TooManySigils")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TooManySigils")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.5.0.0")]
