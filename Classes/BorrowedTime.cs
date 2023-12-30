@@ -38,9 +38,9 @@ namespace TooManySigils.Classes
             {
                 if (Singleton<ViewManager>.Instance.CurrentView != View.BoardCentered)
                 {
-                    yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(0.3f);
                     Singleton<ViewManager>.Instance.SwitchToView(View.BoardCentered, false, false);
-                    yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(0.3f);
                 }
                 if (base.Card.Info.iceCubeParams.creatureWithin != null)
                 {
@@ -55,9 +55,9 @@ namespace TooManySigils.Classes
             {
                 if (Singleton<ViewManager>.Instance.CurrentView != View.BoardCentered)
                 {
-                    yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(0.3f);
                     Singleton<ViewManager>.Instance.SwitchToView(View.BoardCentered, false, false);
-                    yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(0.3f);
                 }
                 if (base.Card.Info.evolveParams.evolution != null)
                 {
