@@ -26,10 +26,17 @@ namespace TooManySigils.Classes
 
             if (!Card.Slot == Card.Dead)
             {
-                Card.Anim.StrongNegationEffect();
-                Card.TemporaryMods.Add(new CardModificationInfo(-1, -1));
-                yield return LearnAbility(0f);
-                yield return new WaitForSeconds(0.3f);
+                if (Card.Slot == Card.Health.Equals(1))
+                {
+                    yield return Card.Die(false, null, false);
+                }
+                else
+                {
+                    Card.Anim.StrongNegationEffect();
+                    Card.TemporaryMods.Add(new CardModificationInfo(-1, -1));
+                    yield return LearnAbility(0f);
+                    yield return new WaitForSeconds(0.3f);
+                }
             }
 
             yield break;
