@@ -62,6 +62,7 @@ namespace TooManySigils
             AddBellPresser();
             AddCoinsWithin();
             AddTreasureTracker();
+            AddOneFourthChanceInstakill();
             /*
             AddFishOutOfWater();
             AddClawStrike();
@@ -630,6 +631,29 @@ namespace TooManySigils
 
             // Pass the ability to the API.
             TreasureTracker.ability = treasuretracker.ability;
+        }
+        private void AddOneFourthChanceInstakill()
+        {
+            // This builds our ability information.
+            AbilityInfo oneFourthChanceInstakill = AbilityManager.New(
+                PluginGuid,
+                "One Fourth Chance Instakill",
+                "When this card would be attacked, there is a 25% chance that the striker perishes.",
+                typeof(One_Fourth_Chance_Instakill),
+                "OneFourthChanceInstakill_A1.png"
+            )
+
+            // This ability will show up in the Part 1 rulebook and can appear on cards in Part 1.
+            .SetDefaultPart1Ability()
+
+            // This specifies the icon for the ability if it exists in Part 2.
+            .SetPixelAbilityIcon(TextureHelper.GetImageAsTexture("OneFourthChanceInstakill_A2.png"), FilterMode.Point)
+
+            //Adds all rulebook metacategories
+            .AddMetaCategories(AbilityMetaCategory.Part1Rulebook, AbilityMetaCategory.Part3Rulebook, AbilityMetaCategory.GrimoraRulebook, AbilityMetaCategory.MagnificusRulebook);
+
+            // Pass the ability to the API.
+            One_Fourth_Chance_Instakill.ability = oneFourthChanceInstakill.ability;
         }
         /*
         private void AddFishOutOfWater()

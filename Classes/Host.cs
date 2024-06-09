@@ -28,8 +28,7 @@ namespace TooManySigils.Classes
             yield return new WaitForSeconds(0.2f);
             Singleton<ViewManager>.Instance.SwitchToView(View.Default, false, false);
             yield return new WaitForSeconds(0.2f);
-            bool flag2 = Card.Info.iceCubeParams.creatureWithin != null;
-            if (flag2)
+            if (Card.Info.iceCubeParams.creatureWithin != null)
             {
                 yield return Singleton<CardSpawner>.Instance.SpawnCardToHand(Card.Info.iceCubeParams.creatureWithin, new List<CardModificationInfo>(), new Vector3(0f, 0f, 0f), 0f, null);
             }

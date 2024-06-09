@@ -21,11 +21,9 @@ namespace TooManySigils.Classes
         }
         public override IEnumerator PostSuccessfulMoveSequence(CardSlot oldSlot)
         {
-            bool flag = oldSlot.Card == null;
-            if (flag)
+            if (oldSlot.Card == null)
             {
-                bool flag2 = Card.Info.iceCubeParams.creatureWithin != null;
-                if (flag2)
+                if (Card.Info.iceCubeParams.creatureWithin != null)
                 {
                     yield return Singleton<BoardManager>.Instance.CreateCardInSlot(Card.Info.iceCubeParams.creatureWithin, oldSlot, 0.1f, true);
                 }

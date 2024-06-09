@@ -29,21 +29,18 @@ namespace TooManySigils.Classes
             List<CardSlot> openspots = new List<CardSlot>();
             foreach (CardSlot slot in cards)
             {
-                bool flag = slot.Card == null;
-                if (flag)
+                if (slot.Card == null)
                 {
                     openspots.Add(slot);
                 }
             }
-            bool flag2 = openspots.Count != 0;
-            if (flag2)
+            if (openspots.Count != 0)
             {
                 System.Random random = new System.Random();
                 yield return new WaitForSeconds(0.3f);
                 Singleton<ViewManager>.Instance.SwitchToView(View.Board, false, false);
                 yield return new WaitForSeconds(0.3f);
-                bool flag3 = Card.Info.iceCubeParams.creatureWithin != null;
-                if (flag3)
+                if (Card.Info.iceCubeParams.creatureWithin != null)
                 {
                     yield return Singleton<BoardManager>.Instance.CreateCardInSlot(Card.Info.iceCubeParams.creatureWithin, openspots[random.Next(openspots.Count)], 0.1f, true);
                 }
@@ -54,6 +51,7 @@ namespace TooManySigils.Classes
                 yield return new WaitForSeconds(0.3f);
                 Singleton<ViewManager>.Instance.SwitchToView(View.Default, false, false);
             }
+            yield break;
         }
         public static Ability ability;
     }
