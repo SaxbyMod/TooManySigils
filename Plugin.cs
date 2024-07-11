@@ -639,7 +639,7 @@ namespace TooManySigils
                 PluginGuid,
                 "One Fourth Chance Instakill",
                 "When this card would be attacked, there is a 25% chance that the striker perishes.",
-                typeof(One_Fourth_Chance_Instakill),
+                typeof(One_Fouth_Chance_Instakill),
                 "OneFourthChanceInstakill_A1.png"
             )
 
@@ -653,7 +653,7 @@ namespace TooManySigils
             .AddMetaCategories(AbilityMetaCategory.Part1Rulebook, AbilityMetaCategory.Part3Rulebook, AbilityMetaCategory.GrimoraRulebook, AbilityMetaCategory.MagnificusRulebook);
 
             // Pass the ability to the API.
-            One_Fourth_Chance_Instakill.ability = oneFourthChanceInstakill.ability;
+            One_Fouth_Chance_Instakill.ability = oneFourthChanceInstakill.ability;
         }
         /*
         private void AddFishOutOfWater()
