@@ -2,6 +2,7 @@
 using HarmonyLib;
 using InscryptionAPI.Card;
 using InscryptionAPI.Helpers.Extensions;
+using InscryptionAPI.Triggers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,12 +12,14 @@ using UnityEngine;
 namespace TooManySigils.Classes
 {
     [HarmonyPatch]
-    internal class ClawStrike : ExtendedAbilityBehaviour
+    internal class ClawStrike : ExtendedAbilityBehaviour, IOnPostSlotAttackSequence
     {
-        public CardModificationInfo mod = new CardModificationInfo() { singletonId = "ClawStrikeLeft" };
 
         public static Ability ability;
 
+        // instead of adding and modifying CardModInfos, we can use an internal bool to keep track of alternating strikes
+        // and a second bool that can determines whether or not to give extra attack
+        private bool DealBonusToLeft = true;
         public override Ability Ability
         {
             get
@@ -25,28 +28,18 @@ namespace TooManySigils.Classes
             }
         }
 
-        public void Start()
-        {
-            base.Card.AddTemporaryMod(mod);
-        }
-
-        public override bool RemoveDefaultAttackSlot()
-        {
-            return true;
-        }
-
-        public override bool RespondsToGetOpposingSlots()
-        {
-            return true;
-        }
+        public override bool RemoveDefaultAttackSlot() => true; // truncated these to reduce visual noise, revert them back if you want
+        public override bool RespondsToGetOpposingSlots() => true;
 
         public override List<CardSlot> GetOpposingSlots(List<CardSlot> originalSlots, List<CardSlot> otherAddedSlots)
         {
-            return Singleton<BoardManager>.Instance.GetAdjacentSlots(base.Card.Slot.opposingSlot);
+            // sets currentTargets to the result, then returns the result
+            return currentTargets = Singleton<BoardManager>.Instance.GetAdjacentSlots(base.Card.Slot.opposingSlot);
         }
 
-
-        [HarmonyPostfix]
+        List<CardSlot> currentTargets = new();
+        // the API adds custom trigger interfaces for OnPostSingularSlotAttackSlot, this is unnecessary (in most cases)
+        /*[HarmonyPostfix]
         [HarmonyPatch(typeof(CombatPhaseManager), nameof(CombatPhaseManager.SlotAttackSlot))]
         public static void SlotAttackSlotPatch(CardSlot attackingSlot)
         {
@@ -63,18 +56,56 @@ namespace TooManySigils.Classes
                     RightMod.singletonId = "ClawStrikeLeft";
                 }
             }
+        }*/
+
+        public override bool RespondsToSlotTargetedForAttack(CardSlot slot, PlayableCard attacker)
+        {
+            return attacker == base.Card && currentTargets.Contains(slot);
         }
 
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(PlayableCard), nameof(PlayableCard.Attack), MethodType.Getter)]
-        public static bool AttackPatch(ref PlayableCard __instance, ref int __result)
+        public override IEnumerator OnSlotTargetedForAttack(CardSlot slot, PlayableCard attacker)
         {
-            CardModificationInfo LeftMod = __instance.TemporaryMods.FirstOrDefault(x => x.singletonId == "ClawStrikeLeft");
-            bool isEvenTurn = Singleton<TurnManager>.Instance.TurnNumber % 2 == 0;
-            if ((LeftMod != null) == isEvenTurn && __instance.HasAbility(ClawStrike.ability)) { return true; }
+            // since we did a .Contains check, we can assume there's at least one item in this list
+            if (DealBonusToLeft)
+            {
+                if (currentTargets[0] == slot)
+                {
+                    base.Card.AddTemporaryMod(new() { singletonId = "ClawStrikePower", nonCopyable = true }); // nonCopyable because we don't want other cards to accidentally get this
+                }
+            }
+            else if (currentTargets.Count > 1 && currentTargets[1] == slot) // make sure there's a second slot to check
+            {
+                base.Card.AddTemporaryMod(new() { singletonId = "ClawStrikePower", nonCopyable = true });
+            }
+            yield break;
+        }
 
-            __result = Mathf.Max(0, __instance.Info.Attack + __instance.GetAttackModifications() + __instance.GetPassiveAttackBuffs()) + 1;
-            return false;
+        public bool RespondsToPostSlotAttackSequence(CardSlot attackingSlot) => attackingSlot.Card == base.Card;
+
+        // alternate between dealing more damage to the left or right slot
+        // does the same as that SlotAttackSlot patch but triggers after the base card's entire attack is done (rather than on each individual strike)
+        // SlotAttackSequence -> GetOpposingSlots -> foreach opposingSlot -> SlotAttackSlot
+        public IEnumerator OnPostSlotAttackSequence(CardSlot attackingSlot)
+        {
+            DealBonusToLeft = !DealBonusToLeft;
+            yield return new WaitForSeconds(0.1f); // brief delay so players can tell that an effect has occurred
+            attackingSlot.Card.RemoveTemporaryMod(attackingSlot.Card.TemporaryMods.Find(x => x.singletonId == "ClawStrikePower"));
+            base.Card.Anim.StrongNegationEffect(); // indicate that the bonus-damage target has changed
+            yield return new WaitForSeconds(0.4f);
+        }
+
+        // i'm confused on the intent here - is the target of the extra damage dealt meant to be determined by the TurnNumber, or an independent thing?
+
+        // since we're just adding an additional Power, we don't need to override the entire method
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(PlayableCard), nameof(PlayableCard.Attack), MethodType.Getter)]
+        public static void AttackPatch(ref PlayableCard __instance, ref int __result)
+        {
+            if (!__instance.HasAbility(ability)) // only affect cards with Claw Strike
+                return;
+
+            if (__instance.TemporaryMods.Find(x => x.singletonId == "ClawStrikePower") != null)
+                __result++;
         }
     }
 }

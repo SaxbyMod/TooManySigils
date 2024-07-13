@@ -63,7 +63,6 @@ namespace TooManySigils
             AddCoinsWithin();
             AddTreasureTracker();
             AddOneFourthChanceInstakill();
-            /*
             AddFishOutOfWater();
             AddClawStrike();
             AddBorrowedTime();
@@ -71,7 +70,7 @@ namespace TooManySigils
             AddTest1();
             AddTest2();
             AddTest3();
-            */
+            
         }
 
         // This method passes the ability and the ability information to the API.
@@ -655,7 +654,7 @@ namespace TooManySigils
             // Pass the ability to the API.
             One_Fouth_Chance_Instakill.ability = oneFourthChanceInstakill.ability;
         }
-        /*
+        
         private void AddFishOutOfWater()
         {
             // This builds our ability information.
@@ -725,11 +724,11 @@ namespace TooManySigils
             // Pass the ability to the API.
             BorrowedTime.ability = borrowedTime.ability;
         }
-        */
+        
         public static Trait BoneslessTrait = GuidManager.GetEnumValue<Trait>(PluginGuid, "Boneless");
 
         public static Trait Child13Trait = GuidManager.GetEnumValue<Trait>(PluginGuid, "Child13");
-        /*
+        
         private void AddTest1()
         {
             CardInfo Test1 = CardManager.New(
@@ -791,6 +790,8 @@ namespace TooManySigils
             CardManager.Add(PluginGuid, Test3);
             
         }
-        */
+
+        
+        
     }
 }
