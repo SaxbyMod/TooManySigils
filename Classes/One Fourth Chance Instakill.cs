@@ -18,7 +18,7 @@ namespace TooManySigils.Classes
         // i assume with this sigil, you're trying to avoid the base card taking any damage - this will take care of that
         public override bool RespondsToSlotTargetedForAttack(CardSlot slot, PlayableCard attacker)
         {
-            return slot == this.Card.Slot && this.Card.Health > 0 && !this.Card.Dead && this.Card.AttackedThisTurn;
+            return Card.OnBoard && !Card.Dead && slot == Card.Slot;
         }
 
         public override IEnumerator OnSlotTargetedForAttack(CardSlot slot, PlayableCard attacker)
@@ -32,6 +32,7 @@ namespace TooManySigils.Classes
                 if (attacker != null)
                 {
                     yield return attacker.Die(false, null, false);
+                    Card.Anim.LightNegationEffect();
                     Console.Write("Success");
                 }
                 else

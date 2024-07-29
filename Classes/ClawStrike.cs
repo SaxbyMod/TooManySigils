@@ -62,7 +62,7 @@ namespace TooManySigils.Classes
         {
             return attacker == base.Card && currentTargets.Contains(slot);
         }
-
+        int Randomizer = UnityEngine.Random.Range(0, 1);
         public override IEnumerator OnSlotTargetedForAttack(CardSlot slot, PlayableCard attacker)
         {
             // since we did a .Contains check, we can assume there's at least one item in this list

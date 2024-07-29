@@ -60,6 +60,7 @@ namespace TooManySigils.Classes
                     // the 'name' parameter refers to the name of the current Object, not the name of the CardInfo
                     // also, since creatureWithin is a CardInfo and not a string, we want to create a clone of it to account for any built-in CardModInfos that may be attached
                     Console.Write("Ice Cube");
+                    Card.Anim.PlayTransformAnimation();
                     yield return BoardManager.Instance.CreateCardInSlot(base.Card.Info.iceCubeParams.creatureWithin.Clone() as CardInfo, base.Card.Slot, 0.15f);
                     yield break;
                 }
@@ -70,6 +71,7 @@ namespace TooManySigils.Classes
                 if (base.Card.Info.evolveParams?.evolution != null)
                 {
                     Console.Write("Evolution");
+                    Card.Anim.PlayTransformAnimation();
                     yield return BoardManager.Instance.CreateCardInSlot(base.Card.Info.evolveParams.evolution.Clone() as CardInfo, base.Card.Slot, 0.15f);
                     yield break;
                 }

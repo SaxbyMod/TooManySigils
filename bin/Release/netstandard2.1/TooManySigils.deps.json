@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "TooManySigils/2.5.0": {
+      "TooManySigils/2.7.0": {
         "dependencies": {
           "BepInEx-MonoMod_Loader_Inscryption": "1.0.0",
           "BepInEx.Analyzers": "1.0.8",
@@ -420,7 +420,7 @@
     }
   },
   "libraries": {
-    "TooManySigils/2.5.0": {
+    "TooManySigils/2.7.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

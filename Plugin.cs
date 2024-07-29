@@ -21,7 +21,7 @@ namespace TooManySigils
         // These are variables that exist everywhere in the entire class.
         private const string PluginGuid = "creator.TooManySigils";
         private const string PluginName = "TooManySigils";
-        private const string PluginVersion = "2.5.0";
+        private const string PluginVersion = "2.7.0";
         private const string PluginPrefix = "Too Many Sigils";
 
         // For some things, like challenge icons, we need to add the art now instead of later.
@@ -35,42 +35,76 @@ namespace TooManySigils
 
             // Here we add the sprites to the list we created earlier.
             art_sprites = new List<Sprite>();
-
+            int Sigils = 0;
+            int Stats = 0;
+            int Traits = 0;
             // The example ability method.
             AddDeadPack();
+            Sigils++;
             AddHeartlocked();
+            Sigils++;
             AddThickshell();
+            Sigils++;
             AddSpawner();
+            Sigils++;
             AddLauncher();
+            Sigils++;
             AddHost();
+            Sigils++;
             AddBastion();
+            Sigils++;
             AddRotting();
+            Sigils++;
             AddCovalesce();
+            Sigils++;
             AddAntsMinus();
+            Sigils++;
             AddLoseBattery();
+            Sigils++;
             AddLoseBattery2();
+            Sigils++;
             AddLoseBattery3();
+            Sigils++;
             AddLoseBattery4();
+            Sigils++;
             AddLoseBattery5();
+            Sigils++;
             AddLoseBattery6();
+            Sigils++;
             AddGainBattery();
+            Sigils++;
             AddGainBattery2();
+            Sigils++;
             AddGainBattery3();
+            Sigils++;
             AddGainBattery4();
+            Sigils++;
             AddGainBattery5();
+            Sigils++;
             AddGainBattery6();
+            Sigils++;
             AddBellPresser();
+            Stats++;
             AddCoinsWithin();
+            Stats++;
             AddTreasureTracker();
+            Sigils++;
             AddOneFourthChanceInstakill();
+            Sigils++;
             AddFishOutOfWater();
-            AddClawStrike();
+            Sigils++;
+            // AddClawStrike();
+            // Sigils++;
             AddBorrowedTime();
+            Sigils++;
             // Add abilities before cards. Otherwise, the game will try to load cards before the abilities are created.
+            /*
             AddTest1();
             AddTest2();
             AddTest3();
-            
+            */
+            Logger.LogInfo($"Loaded {Sigils} amount of Sigils");
+            Logger.LogInfo($"Loaded {Stats} amount of Stats");
         }
 
         // This method passes the ability and the ability information to the API.
@@ -678,6 +712,7 @@ namespace TooManySigils
             // Pass the ability to the API.
             FishOutOfWater.ability = fishoutofwater.ability;
         }
+        /*
         private void AddClawStrike()
         {
             // This builds our ability information.
@@ -701,6 +736,7 @@ namespace TooManySigils
             // Pass the ability to the API.
             ClawStrike.ability = clawStrike.ability;
         }
+        */
         private void AddBorrowedTime()
         {
             // This builds our ability information.
@@ -728,7 +764,7 @@ namespace TooManySigils
         public static Trait BoneslessTrait = GuidManager.GetEnumValue<Trait>(PluginGuid, "Boneless");
 
         public static Trait Child13Trait = GuidManager.GetEnumValue<Trait>(PluginGuid, "Child13");
-        
+        /*
         private void AddTest1()
         {
             CardInfo Test1 = CardManager.New(
@@ -755,7 +791,7 @@ namespace TooManySigils
             CardInfo Test2 = CardManager.New(
                 PluginGuid,
                 // Card internal name
-                "Test",
+                "Test2",
                 // Displayed Name
                 "Test2",
                 // Attack.
@@ -774,7 +810,7 @@ namespace TooManySigils
             CardInfo Test3 = CardManager.New(
                 PluginGuid,
                 // Card internal name
-                "Test",
+                "Test3",
                 // Displayed Name
                 "Test3",
                 // Attack.
@@ -791,7 +827,7 @@ namespace TooManySigils
             
         }
 
-        
+        */
         
     }
 }
