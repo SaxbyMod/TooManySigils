@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|c:\\users\\thinc\\source\\repos\\toomanysigils\\classes\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|solutionrelative:classes\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|c:\\users\\thinc\\source\\repos\\toomanysigils\\classes\\fishoutofwater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|solutionrelative:classes\\fishoutofwater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|c:\\users\\thinc\\source\\repos\\toomanysigils\\plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|solutionrelative:plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|c:\\users\\thinc\\source\\repos\\toomanysigils\\classes\\treasuretracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|solutionrelative:classes\\treasuretracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|c:\\users\\thinc\\source\\repos\\toomanysigils\\classes\\fishoutofwater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7DA9B90-1611-4DAE-9EB3-60C87F0743DE}|TooManySigils.csproj|solutionrelative:classes\\fishoutofwater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "Launcher.cs",
+              "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\Launcher.cs",
+              "RelativeDocumentMoniker": "Classes\\Launcher.cs",
+              "ToolTip": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\Launcher.cs",
+              "RelativeToolTip": "Classes\\Launcher.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T18:25:45.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Child13Trait.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\Child13Trait.cs",
               "RelativeDocumentMoniker": "Classes\\Child13Trait.cs",
@@ -62,12 +79,11 @@
               "RelativeToolTip": "Classes\\Child13Trait.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T03:36:02.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-28T03:36:02.945Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TreasureTracker.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\TreasureTracker.cs",
               "RelativeDocumentMoniker": "Classes\\TreasureTracker.cs",
@@ -75,12 +91,11 @@
               "RelativeToolTip": "Classes\\TreasureTracker.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T21:05:43.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-10T21:05:43.526Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "One Fourth Chance Instakill.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\One Fourth Chance Instakill.cs",
               "RelativeDocumentMoniker": "Classes\\One Fourth Chance Instakill.cs",
@@ -88,12 +103,11 @@
               "RelativeToolTip": "Classes\\One Fourth Chance Instakill.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T18:27:48.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T18:27:48.331Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BorrowedTime.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\BorrowedTime.cs",
               "RelativeDocumentMoniker": "Classes\\BorrowedTime.cs",
@@ -101,12 +115,11 @@
               "RelativeToolTip": "Classes\\BorrowedTime.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAAAD4AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-28T21:55:46.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-12-28T21:55:46.671Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ClawStrike.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\ClawStrike.cs",
               "RelativeDocumentMoniker": "Classes\\ClawStrike.cs",
@@ -114,25 +127,24 @@
               "RelativeToolTip": "Classes\\ClawStrike.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAAAFAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-26T23:19:55.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-12-26T23:19:55.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "FishOutOfWater.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\FishOutOfWater.cs",
               "RelativeDocumentMoniker": "Classes\\FishOutOfWater.cs",
               "ToolTip": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Classes\\FishOutOfWater.cs",
               "RelativeToolTip": "Classes\\FishOutOfWater.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAADMAAAAMAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAADMAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-26T22:55:01.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Plugin.cs",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\Plugin.cs",
               "RelativeDocumentMoniker": "Plugin.cs",
@@ -145,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TooManySigils.csproj",
               "DocumentMoniker": "C:\\Users\\Thinc\\source\\repos\\TooManySigils\\TooManySigils.csproj",
               "RelativeDocumentMoniker": "TooManySigils.csproj",
@@ -153,8 +165,7 @@
               "RelativeToolTip": "TooManySigils.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2023-12-28T23:31:02.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-12-28T23:31:02.264Z"
             }
           ]
         }
